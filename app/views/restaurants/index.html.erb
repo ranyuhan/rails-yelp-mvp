@@ -1,0 +1,9 @@
+<h1>Welcome to Yeep</h1>
+<h6><%= link_to "Add a new restaurant", new_restaurant_path %></h6>
+<% @restaurants.each do |restaurant| %>
+  <%= link_to "#{restaurant.name}", restaurant_path(restaurant) %>
+  <p><%= " --- #{restaurant.category}"%>
+    <%= link_to "✎", edit_restaurant_path(restaurant) %>
+    <%= link_to "🗑", restaurant_path(restaurant), method: :delete, data: { confirm: "Are you sure?" } %>
+  </p>
+<% end %>
